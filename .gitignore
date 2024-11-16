@@ -12,3 +12,5 @@ Temp/
 obj/
 
 .idea/
+
+*.csproj
