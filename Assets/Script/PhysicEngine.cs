@@ -8,7 +8,7 @@ public class PhysicEngine : MonoBehaviour
 {
     private float gravitationalUniversalConstant = 6.67430E-11f;
     public PlanetProprety[] planets;
-    public float weight = 2;
+    public float weight;
     public Rigidbody2D rb;
     Vector2 position;
     Vector2 velocity = Vector2.zero;
