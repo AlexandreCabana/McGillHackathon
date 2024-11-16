@@ -8,3 +8,7 @@ Packages/
 UserSettings/
 
 Temp/
+
+obj/
+
+.idea/
