@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PhysicEngine : MonoBehaviour
 {
     private float gravitationalUniversalConstant = 6.67430E-11f;
-    public PlanetProprety[] planets;
+    private List<PlanetProprety> planets = new List<PlanetProprety>();
     public float weight;
     public Rigidbody2D rb;
     Vector2 position;
@@ -44,7 +45,7 @@ public class PhysicEngine : MonoBehaviour
     private Vector2 calculateGravity()
     {
         Vector2 gravity = Vector2.zero;
-        for (int i = 0; i < planets.Length; i++)
+        for (int i = 0; i < planets.Count; i++)
         {
             gravity += calculteForcesFromPlanet(planets[i]);
         }
@@ -77,5 +78,10 @@ public class PhysicEngine : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         hasCrached = true;
+    }
+
+    public void registerPlanet(GameObject planet)
+    {
+        planets.Add(planet.GetComponent<PlanetProprety>());
     }
 }
