@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 0.5f; 
     public float acceleration;
     public float maxSpeed = 5f;
-    public float breakingSpeed;
-    private bool isBreaking = false;
     private Vector2 velocity;
     private float angle;
     void Start()
@@ -27,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
         }
         angle = Mathf.Deg2Rad*transform.localRotation.eulerAngles.z+Mathf.PI/2;
         if (Input.GetKey(KeyCode.W)){
-            isBreaking = false;
             if (velocity.magnitude < maxSpeed)
             {
                 velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration) * Time.deltaTime;
@@ -36,13 +33,6 @@ public class PlayerMovement : MonoBehaviour
                     velocity = new Vector2(Mathf.Cos(angle) * maxSpeed, Mathf.Sin(angle) * maxSpeed);
                 }
             }
-        }else if(Input.GetKey(KeyCode.S)){
-            Vector2 currentacceleration = (velocity - (Time.deltaTime*(new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration))));
-            if ((currentacceleration.x*velocity.x)>0&&(currentacceleration.y*velocity.y)>0)
-            {
-                velocity = currentacceleration;
-            }
-            
         }
         Phys.velocity = velocity;
     }
