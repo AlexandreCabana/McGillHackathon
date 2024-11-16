@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
             Rotate("Right");
         } else if (Input.GetKey(KeyCode.W) && ((Phys.velocity.magnitude<maxSpeed && Phys.velocity.x*Phys.velocity.y>=0)|| (Phys.velocity.x*Phys.velocity.y<=0))){
             Accelerate(movementSpeed);
-            Debug.Log("ACCELERATING");
         } else if(Input.GetKey(KeyCode.S) && Phys.velocity.magnitude>0){
             Accelerate(-movementSpeed);
         }else{
@@ -43,12 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Accelerate(float amount){
         float angle = transform.localRotation.eulerAngles.z;
-        // BROKEN
-        Phys.rocketInputAcceleration += new Vector2(Mathf.Cos(angle)*amount,Mathf.Sin(angle)*amount);
-    }
-
-    void Decelerate(float amount){
-
+        Phys.rocketInputAcceleration += new Vector2(Mathf.Cos(Mathf.Deg2Rad*angle+Mathf.PI/2)*amount,Mathf.Sin(Mathf.Deg2Rad*angle+Mathf.PI/2)*amount);
     }
 
 }
