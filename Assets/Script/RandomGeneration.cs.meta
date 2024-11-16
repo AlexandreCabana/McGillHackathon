@@ -3,7 +3,10 @@ guid: e674c99992f8a2945a61f069d7432b3d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - planet: {instanceID: 0}
+  - flag: {instanceID: 0}
+  - rocketPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
