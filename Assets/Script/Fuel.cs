@@ -15,12 +15,7 @@ public class Fuel : MonoBehaviour
         barSize = fuelBar.transform.localScale.y;
     }
 
-    void Update()
-    {
-        move();
-    }
-
-    void move()
+    public void move()
     {
         fuel -= fuelConsomption;
         if (fuel >= 0){
