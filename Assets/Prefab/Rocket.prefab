@@ -103,7 +103,7 @@ MonoBehaviour:
   weight: 1
   rb: {fileID: 0}
   velocity: {x: 0, y: 0}
-  rocketInputAcceleration: {x: 0, y: 0}
+  rocketInputVelocity: {x: 0, y: 0}
 --- !u!50 &3219463320024708297
 Rigidbody2D:
   serializedVersion: 4
@@ -118,7 +118,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.04
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -335,3 +335,4 @@ MonoBehaviour:
   rotationSpeed: 0.5
   acceleration: 1
   maxSpeed: 2
+  breakingSpeed: 0.0001
