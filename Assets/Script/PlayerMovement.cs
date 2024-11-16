@@ -11,20 +11,24 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 5f;
     private Vector2 velocity;
     private float angle;
+    private Fuel fuel;
     void Start()
     {
         Phys = GetComponent<PhysicEngine>();
+        fuel = GameObject.Find("Panel").GetComponent<Fuel>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.A)){
             Rotate("Left");
-        } else if (Input.GetKey(KeyCode.D)){
+        } else if (Input.GetKey(KeyCode.D))
+        {
             Rotate("Right");
         }
         angle = Mathf.Deg2Rad*transform.localRotation.eulerAngles.z+Mathf.PI/2;
-        if (Input.GetKey(KeyCode.W)){
+        if (Input.GetKey(KeyCode.W) && fuel.fuel>0){
+            fuel.move();
             velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration) * Time.deltaTime;
             if (velocity.magnitude > maxSpeed)
             {
