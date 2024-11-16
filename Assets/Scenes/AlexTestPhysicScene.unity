@@ -214,60 +214,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &594603992
-GameObject:
+--- !u!1001 &7244278982676151730
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 594603994}
-  - component: {fileID: 594603993}
-  m_Layer: 0
-  m_Name: WorldGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &594603993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594603992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e674c99992f8a2945a61f069d7432b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planet: {fileID: 4051539007498230471, guid: 1f2772fa62884ed4c8fdeaa1693ccb88, type: 3}
-  flag: {fileID: 4973299646771906610, guid: ded715b9323942b4dba5058ed678c81f, type: 3}
-  rocketPrefab: {fileID: 1046271378785555297, guid: 21e3b7f68405bbe40b0bcf034c0834e1, type: 3}
-  numberOfPlanets: 15
-  minPlanetsWeight: 10
-  PlanetsWightMultiplier: 10000000
-  maxPlanetsWeight: 100
---- !u!4 &594603994
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594603992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7878234, y: 0.17383152, z: -0.0060841106}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7878234
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17383152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0060841106
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989908855592496547, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100205841657749475, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
+      propertyPath: m_Name
+      value: WorldGenerator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 594603994}
+  - {fileID: 7244278982676151730}

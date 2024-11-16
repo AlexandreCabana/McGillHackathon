@@ -5,28 +5,37 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public PhysicEngine Phys; 
+    private PhysicEngine Phys; 
     public float rotationSpeed = 0.5f; 
-    public float movementSpeed;
+    public float acceleration;
     public float maxSpeed = 5f;
+    private Vector2 velocity;
     void Start()
     {
-        
+        Phys = GetComponent<PhysicEngine>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.A)){
             Rotate("Left");
         } else if (Input.GetKey(KeyCode.D)){
             Rotate("Right");
-        } else if (Input.GetKey(KeyCode.W) && ((Phys.velocity.magnitude<maxSpeed && Phys.velocity.x*Phys.velocity.y>=0)|| (Phys.velocity.x*Phys.velocity.y<=0))){
-            Accelerate(movementSpeed);
-        } else if(Input.GetKey(KeyCode.S) && Phys.velocity.magnitude>0){
-            Accelerate(-movementSpeed);
-        }else{
-            Phys.rocketInputAcceleration = Vector2.zero;
         }
+        float angle = Mathf.Deg2Rad*transform.localRotation.eulerAngles.z+Mathf.PI/2;
+        if (Input.GetKey(KeyCode.W)){
+            if (velocity.magnitude < maxSpeed)
+            {
+                velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration);
+                if (velocity.magnitude > maxSpeed)
+                {
+                    velocity = new Vector2(Mathf.Cos(angle) * maxSpeed, Mathf.Sin(angle) * maxSpeed);
+                }
+            }
+        }else if(Input.GetKey(KeyCode.S) && (velocity.magnitude > 0)){
+            velocity = new Vector2(Mathf.Cos(angle + Mathf.PI)*acceleration,Mathf.Sin(angle+ Mathf.PI)*acceleration);
+        }
+        Phys.velocity = velocity;
     }
 
     void Rotate(String direction){
@@ -40,9 +49,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Accelerate(float amount){
-        float angle = transform.localRotation.eulerAngles.z;
-        Phys.rocketInputAcceleration += new Vector2(Mathf.Cos(Mathf.Deg2Rad*angle+Mathf.PI/2)*amount,Mathf.Sin(Mathf.Deg2Rad*angle+Mathf.PI/2)*amount);
-    }
 
 }
