@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class RandomGeneration : MonoBehaviour
 {
-    public GameObject planet;
+    public GameObject[] planets;
     public GameObject flag;
     public GameObject rocketPrefab;
     public int numberOfPlanets;
@@ -34,7 +34,8 @@ public class RandomGeneration : MonoBehaviour
     {
         for (int i = 0; i < numberOfPlanets; i++)
         {
-            createPlanet(planet);
+            int index = Random.Range(1,planets.Length+1);
+            createPlanet(planets[index-1]);
         }
     }
     private void createPlanet(GameObject planetPrefab)
