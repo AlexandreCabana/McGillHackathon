@@ -25,13 +25,10 @@ public class PlayerMovement : MonoBehaviour
         }
         angle = Mathf.Deg2Rad*transform.localRotation.eulerAngles.z+Mathf.PI/2;
         if (Input.GetKey(KeyCode.W)){
-            if (velocity.magnitude < maxSpeed)
+            velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration) * Time.deltaTime;
+            if (velocity.magnitude > maxSpeed)
             {
-                velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration) * Time.deltaTime;
-                if (velocity.magnitude > maxSpeed)
-                {
-                    velocity = new Vector2(Mathf.Cos(angle) * maxSpeed, Mathf.Sin(angle) * maxSpeed);
-                }
+                velocity = new Vector2(Mathf.Cos(angle) * maxSpeed, Mathf.Sin(angle) * maxSpeed);
             }
         }
         Phys.velocity = velocity;
