@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class PhysicEngine : MonoBehaviour
@@ -12,8 +13,8 @@ public class PhysicEngine : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 position;
     public Vector2 velocity = Vector2.zero;
-    [HideInInspector]
-    public Vector2 rocketInputAcceleration = Vector2.zero;
+    [FormerlySerializedAs("rocketInputAcceleration")] [HideInInspector]
+    public Vector2 rocketInputVelocity = Vector2.zero;
     bool hasCrached = false;
     void Start()
     {
@@ -27,7 +28,7 @@ public class PhysicEngine : MonoBehaviour
         if (!hasCrached)
         {
             Vector2 gravity = calculateGravity();
-            velocity += rocketInputAcceleration * Time.deltaTime;
+            velocity += rocketInputVelocity;
             velocity += gravity * (weight * Time.deltaTime);
             position += velocity * Time.deltaTime;
             rb.MovePosition(position);
