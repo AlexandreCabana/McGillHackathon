@@ -9,9 +9,9 @@ public class RandomGeneration : MonoBehaviour
     public GameObject flag;
     public GameObject rocketPrefab;
     public int numberOfPlanets;
-    public int minPlanetsWeight;
-    public int PlanetsWightMultiplier;
-    public int maxPlanetsWeight;
+    public float minPlanetsWeight;
+    public float PlanetsWightMultiplier;
+    public float maxPlanetsWeight;
     private PhysicEngine physicEngine;
     void Start()
     {

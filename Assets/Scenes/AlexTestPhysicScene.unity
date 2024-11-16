@@ -247,8 +247,8 @@ MonoBehaviour:
   flag: {fileID: 4973299646771906610, guid: ded715b9323942b4dba5058ed678c81f, type: 3}
   rocketPrefab: {fileID: 1046271378785555297, guid: 21e3b7f68405bbe40b0bcf034c0834e1, type: 3}
   numberOfPlanets: 15
-  minPlanetsWeight: 1
-  PlanetsWightMultiplier: 2147483647
+  minPlanetsWeight: 10
+  PlanetsWightMultiplier: 10000000
   maxPlanetsWeight: 100
 --- !u!4 &594603994
 Transform:
