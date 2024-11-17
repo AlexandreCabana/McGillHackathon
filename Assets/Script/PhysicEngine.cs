@@ -78,7 +78,7 @@ public class PhysicEngine : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene("Menu");
+        changeScene.DeadScene();
     }
 
     public void registerPlanet(GameObject planet)

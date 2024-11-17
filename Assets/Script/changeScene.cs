@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class changeScene : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void v1scene()
+    public static void v1scene()
     {
         SceneManager.LoadScene("V1");
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Menuscene()
     {
-        
+        SceneManager.LoadScene("Menu");
+    }
+
+    public static void DeadScene()
+    {
+        SceneManager.LoadScene("DeadScreen");
     }
 }
