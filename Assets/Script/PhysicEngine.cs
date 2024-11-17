@@ -137,4 +137,10 @@ public class PhysicEngine : MonoBehaviour
     {
         planets.Add(planet);
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        changeScene.DeadScene();
+    }
+
 }

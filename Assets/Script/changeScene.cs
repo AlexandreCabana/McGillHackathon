@@ -30,5 +30,10 @@ public class changeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public static void DeadScene()
+    {
+        SceneManager.LoadScene("DeadScreen");
+    }
     
 }

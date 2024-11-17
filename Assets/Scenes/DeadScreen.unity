@@ -476,7 +476,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 703862035}
         m_TargetAssemblyTypeName: changeScene, Assembly-CSharp
-        m_MethodName: Menuscene
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
