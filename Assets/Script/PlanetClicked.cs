@@ -7,9 +7,9 @@ using UnityEngine;
 public class PlanetClicked : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    public PlanetProprety properties;
+    public PlanetProperty properties;
     void Start(){
-        properties=gameObject.GetComponent<PlanetProprety>();
+        properties=gameObject.GetComponent<PlanetProperty>();
         text = GameObject.Find("Canvas").GetComponentInChildren<TextMeshProUGUI>();
     }
 

@@ -11,14 +11,9 @@ public class changeScene : MonoBehaviour
         SceneManager.LoadScene("chooseLevel");
     }
 
-    public static void Menuscene()
+    public static void EndScene()
     {
-        SceneManager.LoadScene("Menu");
-    }
-
-    public static void DeadScene()
-    {
-        SceneManager.LoadScene("DeadScreen");
+        SceneManager.LoadScene("EndScene");
     }
 
     public static void GenerateRandomScene()
@@ -30,8 +25,10 @@ public class changeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Level" + index);
     }
-    public static void WinScene()
+
+    public static void GoToMenu()
     {
-        SceneManager.LoadScene("WinScreen");
+        SceneManager.LoadScene("Menu");
     }
+    
 }

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1989908855592496547
 Transform:
   m_ObjectHideFlags: 0
@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e674c99992f8a2945a61f069d7432b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 4051539007498230471, guid: 1f2772fa62884ed4c8fdeaa1693ccb88, type: 3}
+  planets: []
   flag: {fileID: 4973299646771906610, guid: ded715b9323942b4dba5058ed678c81f, type: 3}
   rocketPrefab: {fileID: 1046271378785555297, guid: 21e3b7f68405bbe40b0bcf034c0834e1, type: 3}
   numberOfPlanets: 15
+  planetsList: []
+  gridX: 0
+  gridY: 0
   minPlanetsWeight: 10
-  PlanetsWightMultiplier: 10000000
+  PlanetsWeightMultiplier: 0
   maxPlanetsWeight: 100

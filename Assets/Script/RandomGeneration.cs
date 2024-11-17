@@ -74,10 +74,10 @@ public class RandomGeneration : MonoBehaviour
         //float x = Random.Range(-10*100, 10*100)/100;
         //float y = Random.Range(-4*100, 4*100)/100;
         GameObject planet = Instantiate(planetPrefab, new Vector3(x+Random.Range(-1.5f,1.5f),y+Random.Range(-1.5f,1.5f),0), planetPrefab.transform.rotation);
-        PlanetProprety planetProprety = planet.GetComponent<PlanetProprety>();
+        PlanetProperty planetProprety = planet.GetComponent<PlanetProperty>();
         planetsList.Add(planet);
         planetProprety.weight = Random.Range(minPlanetsWeight, maxPlanetsWeight)*PlanetsWeightMultiplier;
         planetProprety.position = planet.transform.position;
-        physicEngine.registerPlanet(planet);
+        physicEngine.registerPlanet(planet.GetComponent<PlanetProperty>());
     }
 }

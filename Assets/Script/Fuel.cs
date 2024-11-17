@@ -1,25 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fuel : MonoBehaviour
 {
-    public GameObject fuelBar; 
-    public float fuel = 100;
-    public float fuelConsomption;
+    public Slider fuelBar; // Reference to the slider UI element
+    public float maxFuel = 100f; // Maximum fuel amount
+    public float fuelConsumptionRate = 0.1f; // Fuel consumption per second
 
-    public float barSize;
+    private float currentFuel;
 
     void Start()
     {
-        barSize = fuelBar.transform.localScale.y;
+        currentFuel = maxFuel;
+
+        if (fuelBar != null)
+        {
+            fuelBar.maxValue = maxFuel;
+            fuelBar.value = currentFuel;
+        }
     }
 
-    public void move()
+    void Update()
     {
-        fuel -= fuelConsomption;
-        if (fuel >= 0){
-            fuelBar.transform.localScale = new Vector3(fuelBar.transform.localScale.x, barSize*fuel/100, fuelBar.transform.localScale.z);
+        // Update the UI fuel bar
+        if (fuelBar != null)
+        {
+            fuelBar.value = currentFuel;
         }
+    }
+
+    public bool ConsumeFuel(float amount)
+    {
+        if (currentFuel > 0)
+        {
+            currentFuel -= amount * Time.deltaTime;
+
+            // Clamp to ensure fuel doesn’t go below zero
+            if (currentFuel < 0)
+            {
+                currentFuel = 0;
+            }
+
+            return true; // Successfully consumed fuel
+        }
+
+        return false; // No fuel left
+    }
+
+    public float GetCurrentFuel()
+    {
+        return currentFuel;
+    }
+
+    public bool HasFuel()
+    {
+        return currentFuel > 0;
     }
 }
