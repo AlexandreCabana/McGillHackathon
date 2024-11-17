@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class changeScene : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public static void v1scene()
+    public static void chooseLevel()
     {
-        SceneManager.LoadScene("V1");
+        SceneManager.LoadScene("chooseLevel");
     }
 
     public static void Menuscene()
@@ -20,4 +20,20 @@ public class changeScene : MonoBehaviour
     {
         SceneManager.LoadScene("DeadScreen");
     }
+
+    public static void GenerateRandomScene()
+    {
+        SceneManager.LoadScene("RandomScene");
+    }
+
+    public static void LevelScene(int index)
+    {
+        SceneManager.LoadScene("Level" + index);
+    }
+
+    public static void WinScene()
+    {
+        SceneManager.LoadScene("WinScreen");
+    }
+    
 }

@@ -78,7 +78,10 @@ public class PhysicEngine : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        changeScene.DeadScene();
+        if (!other.CompareTag("Goal"))
+        {
+            changeScene.DeadScene();
+        }
     }
 
     public void registerPlanet(GameObject planet)

@@ -34,7 +34,7 @@ public class RandomGeneration : MonoBehaviour
 
     private void createFlag()
     {
-        Instantiate(flag, new Vector3(10, 0, 0), flag.transform.rotation);
+        Instantiate(flag, new Vector3(9, 0, 0), flag.transform.rotation);
     }
 
     private void createAllPlanets()

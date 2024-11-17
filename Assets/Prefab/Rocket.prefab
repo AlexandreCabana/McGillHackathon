@@ -334,5 +334,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0.5
   acceleration: 1
-  maxSpeed: 2
-  breakingSpeed: 0.0001
