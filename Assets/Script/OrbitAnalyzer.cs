@@ -174,6 +174,5 @@ public class OrbitAnalyzer : MonoBehaviour
         Time.timeScale = 0f; // Freeze the game
         gameStopped = true;
         changeScene.EndScene();
-        
     }
 }

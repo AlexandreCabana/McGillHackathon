@@ -506,7 +506,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.025
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   samples: 100
   maxDistance: 10
-  circularityWeight: 0.7
+  circularityWeight: 0.6
   proximityWeight: 0.3
   stabilityWeight: 0.1
   circularityThreshold: 0.2
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelBar: {fileID: 668437539}
   maxFuel: 100
-  fuelConsumptionRate: 30
+  fuelConsumptionRate: 5
 --- !u!114 &668437539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 132360643724761780, guid: 21e3b7f68405bbe40b0bcf034c0834e1, type: 3}
       propertyPath: timeStep
-      value: 0.0005
+      value: 0.00025
       objectReference: {fileID: 0}
     - target: {fileID: 132360643724761780, guid: 21e3b7f68405bbe40b0bcf034c0834e1, type: 3}
       propertyPath: trajectoryLine
