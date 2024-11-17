@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2796092096062711567, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
       propertyPath: numberOfPlanets
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2796092096062711567, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
       propertyPath: planets.Array.size
