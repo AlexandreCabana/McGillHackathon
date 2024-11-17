@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PhysicEngine : MonoBehaviour
 {
@@ -77,7 +78,7 @@ public class PhysicEngine : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        hasCrached = true;
+        SceneManager.LoadScene("Menu");
     }
 
     public void registerPlanet(GameObject planet)

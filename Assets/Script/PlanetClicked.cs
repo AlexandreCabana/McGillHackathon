@@ -15,6 +15,5 @@ public class PlanetClicked : MonoBehaviour
 
     void OnMouseDown(){
         text.text="Planet Mass: "+properties.weight;
-        Debug.unityLogger.Log("Planet Mass: "+properties.weight);
     }
 }
