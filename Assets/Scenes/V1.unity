@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 3222877978174301453, guid: 798290458d971124b9ac9db4456d9783, type: 3}
     - target: {fileID: 2796092096062711567, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
       propertyPath: PlanetsWeightMultiplier
-      value: 1e+11
+      value: 2.5e+11
       objectReference: {fileID: 0}
     - target: {fileID: 4100205841657749475, guid: d79e7e1b46db08246880eb0d4aeb3349, type: 3}
       propertyPath: m_Name
