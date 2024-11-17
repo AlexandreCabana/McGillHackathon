@@ -506,7 +506,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.04
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -581,7 +581,7 @@ MonoBehaviour:
   proximityWeight: 0.3
   stabilityWeight: 0.1
   circularityThreshold: 0.2
-  score: {fileID: 11400000, guid: 5ba0c052bc7859b48bd15df85ecbf91e, type: 2}
+  score: {fileID: 0}
 --- !u!1 &668437537
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelBar: {fileID: 668437539}
   maxFuel: 100
-  fuelConsumptionRate: 30
+  fuelConsumptionRate: 5
 --- !u!114 &668437539
 MonoBehaviour:
   m_ObjectHideFlags: 0
