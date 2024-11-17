@@ -11,15 +11,9 @@ public class changeScene : MonoBehaviour
         SceneManager.LoadScene("chooseLevel");
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void EndScene()
     {
-        
-    }
-
-    public static void DeadScene()
-    {
-        SceneManager.LoadScene("DeadScreen");
+        SceneManager.LoadScene("EndScene");
     }
 
     public static void GenerateRandomScene()
@@ -30,6 +24,11 @@ public class changeScene : MonoBehaviour
     public static void LevelScene(int index)
     {
         SceneManager.LoadScene("Level" + index);
+    }
+
+    public static void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
     
 }

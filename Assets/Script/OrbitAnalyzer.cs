@@ -13,6 +13,7 @@ public class OrbitAnalyzer : MonoBehaviour
     private List<float> distances = new List<float>(); // Tracks the distances from the planet
     private List<Vector2> positions = new List<Vector2>(); // Tracks the positions for stability checks
     private bool gameStopped = false; // Tracks if the game is stopped
+    public FloatScriptableObject score;
 
     void Update()
     {
@@ -144,6 +145,7 @@ public class OrbitAnalyzer : MonoBehaviour
 
         // Clamp final score to 0–100
         goodnessScore = Mathf.Clamp(goodnessScore, 0f, 100f);
+        score.value = goodnessScore;
 
         // Print results
         Debug.Log($"Orbit Analysis:");
@@ -171,5 +173,7 @@ public class OrbitAnalyzer : MonoBehaviour
     {
         Time.timeScale = 0f; // Freeze the game
         gameStopped = true;
+        changeScene.EndScene();
+        
     }
 }

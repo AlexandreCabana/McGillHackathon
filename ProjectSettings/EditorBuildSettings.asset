@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DeadScreen.unity
     guid: 5ec4b789d7661114399b6980cadb789c
   - enabled: 0
@@ -15,12 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 0f0d0067db5d95949ab0b147614545e0
   - enabled: 1
-    path: Assets/Scenes/RandomScene.unity
+    path: Assets/Scenes/Level1.unity
     guid: 6af58267ec9264345bf83f7f618dc4a4
   - enabled: 1
     path: Assets/Scenes/chooseLevel.unity
     guid: dd2efbe2d4e8b6b428cf433965ee3cbb
   - enabled: 1
     path: Assets/Scenes/Level1.unity
-    guid: abe1355dbb5329343813e954bba83e45
+    guid: 6af58267ec9264345bf83f7f618dc4a4
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 5ac0b04c2959ded4f80acea62dd1da8b
   m_configObjects: {}
