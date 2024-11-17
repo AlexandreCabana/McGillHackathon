@@ -30,13 +30,8 @@ public class changeScene : MonoBehaviour
     {
         SceneManager.LoadScene("Level" + index);
     }
-<<<<<<< HEAD
-
     public static void WinScene()
     {
         SceneManager.LoadScene("WinScreen");
     }
-=======
->>>>>>> origin/master
-    
 }
