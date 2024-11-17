@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 498387259107595141}
   - component: {fileID: 1693827796055122703}
   - component: {fileID: 3292591460277088308}
+  - component: {fileID: 1917410894886435241}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -135,3 +136,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8
+--- !u!114 &1917410894886435241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4656800876867509414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bc451bbdec9624581fd75cbc51548d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  properties: {fileID: 1693827796055122703}
