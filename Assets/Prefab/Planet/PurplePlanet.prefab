@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 618622209457270288}
   - component: {fileID: 4580474158091066427}
   - component: {fileID: 5881765357815537892}
+  - component: {fileID: 5149125500065126405}
   m_Layer: 0
   m_Name: PurplePlanet
   m_TagString: Untagged
@@ -135,3 +136,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.5
+--- !u!114 &5149125500065126405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360965265537364236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bc451bbdec9624581fd75cbc51548d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  properties: {fileID: 4580474158091066427}
