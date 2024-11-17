@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: e674c99992f8a2945a61f069d7432b3d
+guid: f66c8ade97c95487c97d2b39ebf43727
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - planet: {instanceID: 0}
-  - flag: {instanceID: 0}
-  - rocketPrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

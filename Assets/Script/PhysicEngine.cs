@@ -1,87 +1,135 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 public class PhysicEngine : MonoBehaviour
 {
-    private float gravitationalUniversalConstant = 6.67430E-11f;
-    private List<PlanetProprety> planets = new List<PlanetProprety>();
-    public float weight;
-    public Rigidbody2D rb;
-    Vector2 position;
-    public Vector2 velocity = Vector2.zero;
-    [FormerlySerializedAs("rocketInputAcceleration")] [HideInInspector]
-    public Vector2 rocketInputVelocity = Vector2.zero;
-    bool hasCrached = false;
+    private const float gravitationalUniversalConstant = 6.67430e-6f; // Scaled G for Unity
+    public float weight; // Mass of the rocket
+    private Rigidbody2D rb;
+    private Vector2 position;
+    private Vector2 velocity = Vector2.zero;
+    [HideInInspector]
+    public Vector2 rocketInputAcceleration = Vector2.zero;
+
+    public List<PlanetProperty> planets = new List<PlanetProperty>(); // Planets affecting gravity
+    public LineRenderer trajectoryLine; // LineRenderer for the trajectory visualization
+    public int trajectorySteps = 100; // Number of steps to predict
+    public float timeStep = 0.1f; // Time between prediction steps
+
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        position = transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        position = rb.position;
+
+        // Automatically find and assign planets if not manually set
+        if (planets.Count == 0)
+        {
+            planets.AddRange(FindObjectsOfType<PlanetProperty>());
+        }
+
+        // Ensure LineRenderer is assigned
+        if (trajectoryLine == null)
+        {
+            Debug.LogError("LineRenderer for trajectory is not assigned!");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (!hasCrached)
-        {
-            Vector2 gravity = calculateGravity();
-            velocity += rocketInputVelocity;
-            velocity += gravity * (weight * Time.deltaTime);
-            position += velocity * Time.deltaTime;
-            rb.MovePosition(position);
-        }
-        else
-        {
-            Debug.Log("Crashed");
-        }
-    }
-    private Vector2 calculateAcceleration(Vector2 force)
-    {
-        return force/weight;
-    }
-    private Vector2 calculateGravity()
-    {
-        Vector2 gravity = Vector2.zero;
-        for (int i = 0; i < planets.Count; i++)
-        {
-            gravity += calculteForcesFromPlanet(planets[i]);
-        }
-        return gravity;
-    }
-    private Vector2 calculteForcesFromPlanet(PlanetProprety planet)
-    {
-        float distance = Vector2.Distance(position, planet.position);
-        if (distance==0)
-        {
-            return Vector2.zero;
-        }
-        float force = (gravitationalUniversalConstant * planet.weight * this.weight) / (distance * distance);
-        float deltaY = (planet.position.y-position.y);
-        float deltaX = (planet.position.x -position.x);
-        float angle;
-        if (deltaX == 0)
-            angle = Mathf.PI / 2;
-        else if (deltaX < 0)
-        {
-            angle = Mathf.Atan(deltaY / deltaX) + Mathf.PI;
-        }
-        else
-        {
-            angle = Mathf.Atan(deltaY / deltaX);
-        }
-        return new Vector2(force*Mathf.Cos(angle), force*Mathf.Sin(angle));
+        Vector2 gravityForce = CalculateGravity();
+        Vector2 gravityAcceleration = gravityForce / weight;
+
+        // Total acceleration (gravity + player input)
+        Vector2 totalAcceleration = gravityAcceleration + rocketInputAcceleration;
+
+        // Update velocity and position
+        velocity += totalAcceleration * Time.fixedDeltaTime;
+        position += velocity * Time.fixedDeltaTime;
+
+        rb.MovePosition(position);
+
+        // Reset rocketInputAcceleration to prevent continuous input
+        rocketInputAcceleration = Vector2.zero;
+
+        // Update the trajectory line
+        UpdateTrajectoryLine();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    private Vector2 CalculateGravity()
     {
-        hasCrached = true;
+        Vector2 totalGravityForce = Vector2.zero;
+
+        foreach (PlanetProperty planet in planets)
+        {
+            totalGravityForce += CalculateForceFromPlanet(planet);
+        }
+
+        return totalGravityForce;
     }
 
-    public void registerPlanet(GameObject planet)
+    private Vector2 CalculateForceFromPlanet(PlanetProperty planet)
     {
-        planets.Add(planet.GetComponent<PlanetProprety>());
+        Vector2 direction = planet.position - position;
+        float distanceSquared = direction.sqrMagnitude;
+
+        // Cap the minimum distance to avoid extremely large gravitational force
+        float minDistance = 2f; // Minimum distance in Unity units
+        if (distanceSquared < minDistance * minDistance)
+            distanceSquared = minDistance * minDistance;
+
+        float forceMagnitude = (gravitationalUniversalConstant * planet.weight * weight) / distanceSquared;
+        Vector2 force = direction.normalized * forceMagnitude;
+
+        return force;
+    }
+
+    private void UpdateTrajectoryLine()
+    {
+        if (trajectoryLine == null) return;
+
+        // Create a list to store the predicted positions
+        List<Vector3> predictedPositions = new List<Vector3>();
+        Vector2 simulatedPosition = position;
+        Vector2 simulatedVelocity = velocity;
+
+        for (int i = 0; i < trajectorySteps; i++)
+        {
+            // Calculate simulated forces and accelerations
+            Vector2 gravityForce = Vector2.zero;
+            foreach (PlanetProperty planet in planets)
+            {
+                gravityForce += CalculateSimulatedForceFromPlanet(planet, simulatedPosition);
+            }
+
+            Vector2 gravityAcceleration = gravityForce / weight;
+            Vector2 totalAcceleration = gravityAcceleration;
+
+            // Update simulated velocity and position
+            simulatedVelocity += totalAcceleration * timeStep;
+            simulatedPosition += simulatedVelocity * timeStep;
+
+            // Add the predicted position to the list
+            predictedPositions.Add(new Vector3(simulatedPosition.x, simulatedPosition.y, 0));
+        }
+
+        // Apply the predicted positions to the LineRenderer
+        trajectoryLine.positionCount = predictedPositions.Count;
+        trajectoryLine.SetPositions(predictedPositions.ToArray());
+    }
+
+    private Vector2 CalculateSimulatedForceFromPlanet(PlanetProperty planet, Vector2 simulatedPosition)
+    {
+        Vector2 direction = planet.position - simulatedPosition;
+        float distanceSquared = direction.sqrMagnitude;
+
+        // Cap the minimum distance to avoid extremely large gravitational force
+        float minDistance = 2f; // Minimum distance in Unity units
+        if (distanceSquared < minDistance * minDistance)
+            distanceSquared = minDistance * minDistance;
+
+        float forceMagnitude = (gravitationalUniversalConstant * planet.weight * weight) / distanceSquared;
+        Vector2 force = direction.normalized * forceMagnitude;
+
+        return force;
     }
 }

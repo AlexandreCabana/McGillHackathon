@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 1.5, y: 0}
-  weight: 100000000
+  weight: 100
 --- !u!58 &4412729132252810269
 CircleCollider2D:
   m_ObjectHideFlags: 0
