@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     private PhysicEngine Phys; 
     public float rotationSpeed = 0.5f; 
     public float acceleration;
-    public float maxSpeed = 5f;
     private Vector2 velocity;
     private float angle;
     private Fuel fuel;
@@ -25,10 +24,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && fuel.fuel>0){
             fuel.move();
             velocity += new Vector2(Mathf.Cos(angle)*acceleration,Mathf.Sin(angle)*acceleration) * Time.deltaTime;
-            if (velocity.magnitude > maxSpeed)
-            {
-                velocity = new Vector2(Mathf.Cos(angle) * maxSpeed, Mathf.Sin(angle) * maxSpeed);
-            }
         }
         Phys.velocity = velocity;
     }
